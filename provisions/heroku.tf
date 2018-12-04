@@ -26,6 +26,20 @@ resource "heroku_app" "production" {
   ]
 }
 
+# Create new app
+resource "heroku_app" "development" {
+  name   = "developmentdevopspartiel"
+  region = "eu"
+
+  config_vars {
+    FOOBAR = "baz"
+  }
+
+  buildpacks = [
+    "heroku/go",
+  ]
+}
+
 # Create a Heroku pipeline
 resource "heroku_pipeline" "ourapppipeline" {
   name = "apppipelinepartiel"
@@ -39,7 +53,7 @@ resource "heroku_pipeline_coupling" "staging" {
   stage    = "staging"
 }
 resource "heroku_pipeline_coupling" "development" {
-  app      = "${heroku_app.staging.name}"
+  app      = "${heroku_app.development.name}"
   pipeline = "${heroku_pipeline.ourapppipeline.id}"
   stage    = "development"
 }
