@@ -32,10 +32,16 @@ resource "heroku_pipeline" "ourapppipeline" {
 }
 
 # Couple apps to different pipeline stages
+
 resource "heroku_pipeline_coupling" "staging" {
   app      = "${heroku_app.staging.name}"
   pipeline = "${heroku_pipeline.ourapppipeline.id}"
   stage    = "staging"
+}
+resource "heroku_pipeline_coupling" "development" {
+  app      = "${heroku_app.staging.name}"
+  pipeline = "${heroku_pipeline.ourapppipeline.id}"
+  stage    = "development"
 }
 
 resource "heroku_pipeline_coupling" "production" {
