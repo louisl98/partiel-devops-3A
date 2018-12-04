@@ -42,7 +42,7 @@ resource "heroku_app" "development" {
 
 # Create a Heroku pipeline
 resource "heroku_pipeline" "ourapppipeline" {
-  name = "apppipelinepartiel"
+  name = "ourapppipeline"
 }
 
 # Couple apps to different pipeline stages
@@ -71,6 +71,11 @@ resource "heroku_addon" "database_staging" {
 }
 
 resource "heroku_addon" "database_prod" {
+  app  = "${heroku_app.production.name}"
+  plan = "heroku-postgresql:hobby-dev"
+}
+
+resource "heroku_addon" "database_dev" {
   app  = "${heroku_app.production.name}"
   plan = "heroku-postgresql:hobby-dev"
 }
