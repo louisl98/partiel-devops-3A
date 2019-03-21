@@ -8,7 +8,5 @@ Lien app production : https://productiondevopspartiel.herokuapp.com/
 
 Améliorations possibles du workflow : 
 
-- Ne plus jamais mettre en prod un vendredi soir
+- Ne pas mettre en prod un vendredi soir
 - Utiliser une branche pour chaque app (staging, dev, prod)
--
-
