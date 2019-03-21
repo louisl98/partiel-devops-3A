@@ -1,3 +1,1 @@
-partiel devops
-
-see branch development
+Partiel DevOps
