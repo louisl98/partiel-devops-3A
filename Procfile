@@ -1,1 +1,1 @@
-web: devops
+web: go run main.go
