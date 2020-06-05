@@ -10,9 +10,9 @@ services:
       POSTGRES_USER: "My_DB"
       POSTGRES_PASSWORD: "awesome"
     volumes:
-       - "useless?:/var/lib/postgresql/data"
+       - "dbsql:/var/lib/postgresql/data"
     ports:
-      - "5432:5432" # port sortant rajouté
+      - "5432:5432"
 
 volumes:
   dbsql:
